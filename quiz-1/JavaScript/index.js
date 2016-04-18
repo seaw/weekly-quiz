@@ -15,7 +15,7 @@ function findBestDeal(historicalPrices){
   for (var pricesIndex = 0; pricesIndex < historicalPrices.length; pricesIndex++){
     for (var nextPriceIndex = pricesIndex + 1; nextPriceIndex < historicalPrices.length; nextPriceIndex++){
       var buyingPrice = historicalPrices[pricesIndex];
-      var sellingPrice = historicalPrices[nextPriceIndex]
+      var sellingPrice = historicalPrices[nextPriceIndex];
       if(sellingPrice - buyingPrice > 0){
         var currentProfit = sellingPrice - buyingPrice;
         if (currentProfit > profit){
@@ -28,6 +28,26 @@ function findBestDeal(historicalPrices){
   return profit
 }
 
+function findBestDealUsingOneForLoop(historicalPrices){
+  var profit = 0;
+  var min = historicalPrices[0];
+
+  for (var pricesIndex = 0; pricesIndex < historicalPrices.length; pricesIndex++){
+    var buyingPrice = historicalPrices[pricesIndex];
+    var currentProfit = buyingPrice - min;
+
+    if(buyingPrice < min) {
+      min = buyingPrice;
+    }
+
+    if(currentProfit > profit){
+      profit = currentProfit;
+    }
+  }
+  console.log('profit',profit);
+  return profit;
+}
+
 inquirer.prompt([
     {type: 'input', name: 'prices', message: 'Historical stock prices' }
   ],
@@ -36,7 +56,8 @@ inquirer.prompt([
   });
 
 module.exports = {
-  findBestDeal: findBestDeal
+  findBestDeal: findBestDeal,
+  findBestDealUsingOneForLoop: findBestDealUsingOneForLoop
 };
 
 

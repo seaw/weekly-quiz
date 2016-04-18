@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var findBestDeal = require('./index.js');
 var chai = require('chai');
@@ -21,4 +21,12 @@ describe('find best deal', function() {
       expect(findBestDeal.findBestDeal(test.prices)).to.equal(test.profit);
     });
   });
+
+  tests.forEach(function (test) {
+    it('Check answer is correct(using one for loop)' , function () {
+      expect(findBestDeal.findBestDealUsingOneForLoop(test.prices)).to.equal(test.profit);
+    });
+  });
+
+
 });
