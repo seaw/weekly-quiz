@@ -1,0 +1,19 @@
+{
+  "name": "quiz-1",
+  "version": "0.1.0",
+  "description": "Find the best deal",
+  "main": "./index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test.js",
+    "watch": "node_modules/.bin/mocha -w --reporter spec test.js"
+  },
+  "author": "SQElsa <elsa.wang0025@gmail.com>",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "inquirer": "^0.9.0",
+    "lodash": "^4.11.1"
+  }
+}
